@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: ws: 'unsafe-inline'; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: blob: cdvfile: filesystem: http://127.0.0.1">
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/jQMProgressBar.css">
+        <script type="text/javascript" src="core/jquery.min.js"></script>
+        <script type="text/javascript" src="core/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jQMProgressBar.js"></script>
+        <title>Versato</title>
+    </head>
+    <body>
+        <body>
+
+            <div class="container">
+            <div class="ui-loader-background"> </div>
+                <div data-role="page" id="first-run" style="height:100%;">
+                    <div data-role="header" data-position="fixed"  data-id="header" data-tap-toggle="false"></div>
+                    <div data-role="main" class="ui-content" style="height:100%;">
+                        <figure class="logotipo animated fadeInDown">
+                            <img src="img/logo.png" alt="" width="190px">
+                        </figure>
+                        <div class="ui-body ui-body-a ui-corner-all animated fadeInUp" id="loginFormInner">
+                            <!-- Login -->
+                            <div class="lead">
+                                <span>Vamos começar <br><br></span>
+                                <p>Preencha ou escaneie o campo abaixo com o seu <b>Token de Acesso</b> e acesse o seu catálogo digital</p>
+                            </div>
+                            <form method="post" id="login-form">
+                                <div class="ui-field-contain">
+                                    <input type="text" placeholder="Token de Representante" name="inputToken" id="inputToken">
+                                    <a href="#" class="loginBtn"><i class="ion-chevron-right"></i> &nbsp; Entrar</a>
+                                    <a href="#" class="qrCode"><i class="ion-qr-scanner"></i>SCAN</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- fim first-run -->
+                <!-- sapatos -->
+                <div data-role="page" id="brands">
+                    <div data-role="header" class="brandsHeader shadowed" data-id="header"  data-position="fixed" data-tap-toggle="false">
+                        <h1>Selecione uma marca</h1>
+                        <div class="ui-btn-right user-info">
+                            <figure class="userAvatar">
+                                <img src="img/usr.jpeg" width="100%" height="100%">
+                            </figure>
+                            <span class="username-label">Usuário</span>
+                        </div>
+                    </div>
+                    <div data-role="content" id="innerBrandsList"  class="scrollable">
+                        <ul data-role="listview" id="brandsList" data-icon="false" data-theme="aaa">
+                        </ul>
+                    </div>
+                </div>
+                <!-- fim sapatos -->
+                <!-- marcas -->
+                <div data-role="page" id="catalogo" data-dom-cache="false">
+                    <div data-role="header" data-hide-during-focus="false" data-position="fixed" data-id="header" data-tap-toggle="false" class="shadowed">
+                        <div class="ui-btn-left bg-top-tool">
+                            <a href="#brands" data-direction="reverse" data-transition="slide" id="menu"  class="ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" style="color:white !important">Voltar</a>
+                        </div>
+                        <h1 id="pageTitle">Catálogo</h1>
+                        <div class="ui-btn-right user-info">
+                            <figure class="userAvatar">
+                                <img src="img/usr.jpeg">
+                            </figure>
+                            <span class="username-label">Usuário</span>
+                        </div>
+                    </div>
+                    <div class="subHeader">
+                        <!-- Filtros -->
+                        <div class="catalogFilters" id="filters">
+                              <select name="select-linha" class="filters-select" id="select-linha" data-mini="true" data-inline="true" data-shadow="false" data-corners="false">
+                                <option value="1">Linea</option>
+                              </select>
+                            <select name="select-material" class="filters-select" id="select-material" data-mini="true" data-inline="true" data-corners="false" data-shadow="false" data-corners="false">
+                                <option value="1">Materiales</option>
+                            </select>
+                            <select name="select-cores" class="filters-select" id="select-cores" data-mini="true" data-inline="true" data-corners="false" data-shadow="false" data-corners="false">
+                                <option value="1">Cores</option>
+                            </select>
+                        </div>
+                        <!-- Connect Button -->
+                        <div class="appStatusUpdateBtn">
+                            <a href="#" id="refreshBtnDois"  class="atualizaSistema ui-alt-icon ui-nodisc-icon ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all" style="margin-top:8px;">Voltar</a>
+                        </div>
+                        <div class="appStatusUpdate">
+                            <ul>
+                                <li><span class="ion-wifi"></span> <b id="connectionStatus">Offline</b></li>
+                                <li><span class="ion-earth"></span> Atualizado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="sapatosListBefore" class="scrollable">
+                      <div id="progressbar"></div>
+                            <div id="sapatosList">
+                                <div id="naoAtualizado">
+                                    <span class="lead">
+                                          <br><br>
+                                          <b>É a sua primeira vez por aqui!</b>
+                                          <br><br>
+                                          <small>
+                                            Você deve tocar no botão de atualização abaixo para sincronizar a última versão do catálogo da marca selecionada.
+                                          </small>
+                                          <br><br><br>
+                                          <a href="#" id="refreshBtn"  class="atualizaSistema ui-alt-icon ui-nodisc-icon ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all">Voltar</a>
+                                          </a>
+                                       </span>
+                                </div>
+                            </div>
+                    </div>
+                    <div data-role="footer" data-hide-during-focus="false" data-position="fixed" data-id="header" data-tap-toggle="false" class="shadowed">
+                        <ul>
+                            <li>ITENS NO PEDIDO <span class="itensPedidoNumber"> 0</span></li>
+                            <li>VALOR TOTAL <span class="valorTotalNumber"> AR$ <b>0</b></span></li>
+                            <li id="verPedido">VER PEDIDO<span class="ion-chevron-right"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- fim marcas -->
+                <div data-role="page" id="pedidosBefore">
+                    <div data-role="header" data-hide-during-focus="false" data-position="fixed" data-tap-toggle="false" class="shadowed">
+                        <div class="ui-btn-left bg-top-tool">
+                          <a href="#catalogo" data-direction="reverse" data-transition="slide" id="voltaCatalogo"  class="ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" style="color:white !important">Voltar</a>
+                        </div>
+                        <h1>
+                                    Pedido #1
+                                </h1>
+                        <div class="ui-btn-right user-info">
+                            <figure class="userAvatar">
+                                <img src="img/usr.jpeg">
+                            </figure>
+                            <span class="username-label">Usuário</span>
+                        </div>
+                    </div>
+                    <div class="subHeader">
+                        <ul>
+                          <li>
+                            <label for="" style="width: 100%;text-indent: 10px; margin-top: 10px;">Customer</label>
+  <a href="#popupMenu" data-rel="popup" data-inline="true" data-transition="popup" data-position-to="origin" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-d ui-mini ui-btn-icon-right ui-btn-a" style="width:70% !important"><span id="popupMenuSpan">Selecione</span></a>
+  <div data-role="popup" id="popupMenu" data-theme="a">
+  <form class="ui-filterable"><input id="rich-autocomplete-input" data-type="search" placeholder="Selecione o Customer"></form>
+<ul data-role="listview" id="data-customers" data-filter="true" data-inset="true" data-input="#rich-autocomplete-input"></ul></div></li>
+                            <!-- <li>
+                                <label for="slider">Customer</label>
+                                <select name="customerBox" id="customerBox" data-mini="true" data-inline="true">
+                                    <option value="selecione">Selecione</option>
+                                </select>
+                            </li> -->
+                            <li>
+                                <label for="slider" style="width: 100%;text-indent: 10px; margin-top: 10px;">Delivery</label>
+                                <select name="deliveryBox" id="deliveryBox" data-mini="true" data-inline="true">
+                                    <option value="1">Selecione</option>
+                                </select>
+                            </li>
+                            <li class="sliderDesconto1">
+                                <label for="slider" style="width: 100%;text-indent: 10px; margin-top: 15px;">Desconto do Cliente:</label>
+                                <input type="range" name="descontoClienteSlider" id="descontoClienteSlider" value="0" min="0" max="100">
+                            </li>
+                            <li class="sliderDesconto2">
+                                <label for="slider" style="width: 100%;text-indent: 10px; margin-top: 15px;">Desconto Representante</label>
+                                <input type="range" name="descontoClienteRepresentante" id="descontoClienteRepresentante" value="0" min="0" max="100">
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-role="main">
+                        <h2>Produtos Adicionados</h2>
+                        <table data-role="table" id="movie-table-custom" data-mode="reflow" class="movie-list">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1">Nº</th>
+                                    <th data-priority="3">Produto</th>
+                                    <th data-priority="4">Tarea</th>
+                                    <th data-priority="5">QTD</th>
+                                    <th data-priority="7">Precio</th>
+                                    <th data-priority="8">Descuento</th>
+                                    <th data-priority="9">Precio final</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="recebeListinha">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div data-role="footer" data-hide-during-focus="false" data-id="header" data-position="fixed" data-tap-toggle="false" class="shadowed">
+                        <ul>
+                            <li>ITENS NO PEDIDO <span class="itensPedidoNumber"> 0</span></li>
+                            <li>VALOR TOTAL <span class="valorTotalNumber"> AR$ <b>0</b></span></li>
+                            <li id="efetuarPedido">EFETUAR PEDIDO<span class="ion-chevron-right"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </body>
+        <!-- Scripts -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/imagesLoaded.js"></script>
+        <script type="text/javascript" src="js/isotope.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/imgcache.js"></script>
+    </body>
+</html>

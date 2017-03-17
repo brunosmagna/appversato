@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-swift-support": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "org.apache.cordova.plugin.cache": {
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.versatozapatos.app"
+        }
+    },
+    "dependent_plugins": {}
+}
